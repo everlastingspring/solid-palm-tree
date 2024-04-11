@@ -1,0 +1,69 @@
+git commands:
+
+to initialise a empty local git repo:
+# git init
+
+to configure your username & email to the local git:
+# git config --global user.name user-name
+# git config --global user.email email
+
+to add new git url to local git:
+# git remote add origin url-of-new-repo
+# git push origin branch-name-usually-master/main-as-per-convension
+
+to create a new branch:
+# git branch new-branch-name  - is always created from the HEAD- which is the pointer to your working tree
+
+to point your head or upcoming commits to your desired branch:
+# git checkout branch-name
+
+to see the status of the working tree:
+# git status
+
+to add the changes to staging area:
+# git add file-name/s
+
+to update or commit to local git:
+# git commit -m "commit meassage"
+
+to add to stash area:
+# git add .
+# git stash
+
+to add the stash to working directory/modified area:
+# git stash pop
+
+to clear the stash:
+# git add .
+# git stash clear
+
+to see last commits;
+# git log
+
+to reset to a particular commit:
+# git reset commit-id
+again you have to push to origin
+
+to clone a forked project/any remote project
+# git clone repo-url
+
+to set/add the upstream repo-url
+# git remote add upstream repo-url
+
+to see the branches:
+# git remote -v
+
+when you have the upstream code commits more than the remote repo commits
+to make both even:
+# git fetch --all --prune  -will fetch all the branches and prune for deleted also
+# git reset --hard upstream/main   -will reset the main branch of local to the main branch of upstream
+# git push origin main -- will push the local changes to remote.
+or can do it in github website
+
+to merge the commits to one single commit:
+can reset to that particular commit and add and commit all to single commit
+or 
+# git rebase -i commit-id   -you can pick the commit id/s and use 's' for squash to commits to get merge your changes to the 'pick commit id above squash commit-ids'
+whichever squash commits are there gets merged into previous pick commit-id
+use escape, : & x to come out of interactive environment
+
