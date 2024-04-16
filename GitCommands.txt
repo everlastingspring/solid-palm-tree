@@ -1,4 +1,6 @@
-git commands:
+git commands from basic to advanced.
+or 
+play here https://learngitbranching.js.org
 
 to initialise a empty local git repo:
 # git init
@@ -66,4 +68,44 @@ or
 # git rebase -i commit-id   -you can pick the commit id/s and use 's' for squash to commits to get merge your changes to the 'pick commit id above squash commit-ids'
 whichever squash commits are there gets merged into previous pick commit-id
 use escape, : & x to come out of interactive environment
+
+to merge the 2 branches means to have a another commit which points to both the commits from the either branches.
+when you have 2 branches running parallel and wants to merge can use:
+# git merge other-branch-name
+# git checkout other-branch-name
+# git merge previous-checkedout-branch
+so that now all 2 branches have all the commits in the work.
+
+to have a cleaner linear commit history we can do rebase:
+# git rebase other-branch-name
+
+to move around in a commity tree 
+HEAD is a reference to the current commint that you are working on top off in your working tree.
+to detach HEAD from the branch means pointing HEAD to commit
+# git checkout HEAD
+
+to move through the tree use relative references such as the ^ caret for one step backwards and ~ tiddle to specify the number of times we want to move on with the branch or HEAD.
+# git checkout HEAD^/HEAD^^
+# git checkout HEAD~3
+
+to force move the branch
+# git branch -f main HEAD~3
+
+to revert the changes in the history:
+# git reset commit-id/HEAD~1/HEAD^  -- will reset the reference of branch to the specified commit-id so the git think the commits after this is ignored wririting the history which is in local.
+# git revert commit-id/HEAD~1/HEAD^   --will add another commit saying reverting the commit and can be pushed to remote.
+
+
+to just add the commits after the current commit from different branches you can just cherry-pick:
+# git cherry-pick c1 c2 c3 cn
+
+when you dont know what commits u want to apply: use interactive rebase
+# git rebase -i HEAD~4/commit-id --then you can reorder them or pick or squash them into single commit.
+
+
+to tag a particular commit:
+# git tag name commit-id  --usually to represent a particular milestone in the history of project. tags cant move like branches in history.
+
+# git describe
+will be closest-tag_branch_g-commit-hash
 
